@@ -2,8 +2,13 @@
 
 namespace App;
 
+use Doctrine\ORM\EntityRepository;
+
 class ProductTest extends TestCase
 {
+    /** @var EntityRepository */
+    private $repository;
+
     public function testCanPersistEntity()
     {
         $this->createEntity();
@@ -42,4 +47,12 @@ class ProductTest extends TestCase
 
         return $product;
     }
+
+    // Setup
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->repository = $this->em->getRepository(Product::class);
+    }
+
 }

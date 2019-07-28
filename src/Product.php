@@ -63,6 +63,4 @@ Product {
 EOT;
 
     }
-
-
 }
